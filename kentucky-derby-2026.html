@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌹 Kentucky Derby 2026 — Fan Central</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --crimson: #8B0000;
+    --crimson-mid: #B22222;
+    --crimson-light: #DC143C;
+    --gold: #C9A84C;
+    --gold-light: #E8C76A;
+    --gold-pale: #FFF8E7;
+    --cream: #FAF5EC;
+    --dark: #1A0A00;
+    --mid: #2E1A0E;
+    --green: #1B4D2E;
+    --green-light: #2D6E45;
+    --maple: #FF3B00;
+    --maple-light: #FF6B35;
+    --text-dark: #2A1505;
+    --text-mid: #5C3A1E;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #4a0f0f 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 80%, #2d1a00 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, #1a2d00 0%, transparent 60%),
+      #0d0500;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(201,168,76,0.03) 2px,
+      rgba(201,168,76,0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* Track oval decoration */
+  .track-oval {
+    position: absolute;
+    width: 90vw;
+    height: 80vh;
+    border: 2px solid rgba(201,168,76,0.15);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-ring 4s ease-in-out infinite;
+  }
+  .track-oval::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(201,168,76,0.08);
+    border-radius: 50%;
+  }
+
+  @keyframes pulse-ring {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.01); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-roses {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 1s ease 0.1s both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: #fff;
+    text-shadow: 0 0 60px rgba(139,0,0,0.8), 0 4px 20px rgba(0,0,0,0.6);
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-title span {
+    display: block;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, #a07828 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: rgba(255,255,255,0.7);
+    margin-top: 1rem;
+    animation: fadeUp 1s ease 0.35s both;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+
+  .hero-meta-item {
+    text-align: center;
+  }
+
+  .hero-meta-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .hero-meta-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0.2rem;
+  }
+
+  .hero-divider {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin-top: 1rem;
+  }
+
+  .divider-self {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .divider-self::before, .divider-self::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+  .divider-self::after {
+    background: linear-gradient(to left, transparent, var(--gold));
+  }
+
+  .hero-badge {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: var(--crimson);
+    border: 2px solid var(--gold);
+    padding: 0.5rem 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    animation: fadeUp 1s ease 0.7s both;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+  .scroll-hint::after {
+    content: '↓';
+    display: block;
+    text-align: center;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION WRAPPERS ── */
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    font-size: 0.72rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-rule {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--crimson), var(--gold), var(--crimson));
+    margin: 1.5rem auto 3rem;
+  }
+
+  /* ── ABOUT SECTION ── */
+  .about {
+    background: linear-gradient(180deg, #0d0500 0%, var(--mid) 50%, #0d0500 100%);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .about-stat {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.1);
+    transition: background 0.3s;
+  }
+
+  .about-stat:hover {
+    background: rgba(201,168,76,0.1);
+  }
+
+  .about-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .about-stat-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  .about-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 3rem auto 0;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    font-style: italic;
+  }
+
+  /* ── FIELD TABLE ── */
+  .field-section {
+    background: #0d0500;
+  }
+
+  .filter-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .filter-btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgba(201,168,76,0.4);
+    background: transparent;
+    color: var(--gold);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: #fff;
+  }
+
+  .field-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5px;
+  }
+
+  .horse-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.08);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    transition: all 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .horse-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--crimson);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .horse-card:hover {
+    background: rgba(139,0,0,0.15);
+    border-color: rgba(201,168,76,0.25);
+    transform: translateX(4px);
+  }
+
+  .horse-card:hover::before {
+    opacity: 1;
+  }
+
+  .horse-card.favorite {
+    border-color: rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .horse-card.favorite::before {
+    opacity: 1;
+    background: var(--gold);
+    width: 3px;
+  }
+
+  .horse-post {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.15);
+    min-width: 2.5rem;
+    line-height: 1;
+    text-align: center;
+    padding-top: 0.1rem;
+  }
+
+  .horse-info { flex: 1; }
+
+  .horse-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.35rem;
+  }
+
+  .horse-details {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+
+  .horse-details strong {
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+  }
+
+  .horse-odds {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .odds-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    text-align: right;
+    margin-bottom: 0.2rem;
+  }
+
+  .fav-crown {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+
+  .scratched-badge {
+    display: inline-block;
+    background: rgba(139,0,0,0.4);
+    border: 1px solid var(--crimson);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: var(--crimson-light);
+    text-transform: uppercase;
+    padding: 0.15rem 0.4rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  .alt-badge {
+    display: inline-block;
+    background: rgba(27,77,46,0.4);
+    border: 1px solid var(--green-light);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: #5dbf80;
+    text-transform: uppercase;
+    padding: 0.15rem 0.4rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* ── CANADIAN CONNECTION ── */
+  .canada-section {
+    background: linear-gradient(180deg, #0d0500 0%, #0d1a0d 50%, #0d0500 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .canada-section::before {
+    content: '🍁';
+    position: absolute;
+    font-size: 35vw;
+    opacity: 0.03;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .canada-title-accent {
+    color: var(--maple);
+  }
+
+  .canada-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .canada-card {
+    background: rgba(255,59,0,0.05);
+    border: 1px solid rgba(255,59,0,0.2);
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .canada-card:hover {
+    background: rgba(255,59,0,0.1);
+    border-color: rgba(255,59,0,0.4);
+  }
+
+  .canada-card-flag {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .canada-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.3rem;
+  }
+
+  .canada-card-subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    color: var(--maple);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .canada-card-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .canada-card-text strong {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .canada-note {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(255,59,0,0.2);
+    background: rgba(255,59,0,0.04);
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .canada-note p {
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  .canada-note p strong {
+    color: var(--maple-light);
+  }
+
+  /* ── HISTORY STRIP ── */
+  .history-strip {
+    background: var(--crimson);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .history-strip p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .history-strip strong {
+    color: var(--gold-light);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  footer p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(13,5,0,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero-meta { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .nav-links { display: none; }
+    .field-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">🌹 Derby Fan Central</div>
+  <ul class="nav-links">
+    <li><a href="#field">The Field</a></li>
+    <li><a href="#canada">🍁 Canada</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="track-oval"></div>
+  <div class="hero-badge">Fan Site · 152nd Running</div>
+
+  <p class="hero-eyebrow">Churchill Downs · Louisville, Kentucky</p>
+  <div class="hero-roses" aria-hidden="true">🌹🌹🌹</div>
+  <h1 class="hero-title">
+    Kentucky<span>Derby</span>
+  </h1>
+  <p class="hero-subtitle">The Most Exciting Two Minutes in Sports</p>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Date</div>
+      <div class="hero-meta-value">May 2, 2026</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Post Time</div>
+      <div class="hero-meta-value">6:57 PM ET</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Distance</div>
+      <div class="hero-meta-value">1¼ Miles</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Purse</div>
+      <div class="hero-meta-value">$5 Million</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; animation: fadeUp 1s ease 0.65s both;">
+    <div class="hero-divider" style="margin: 0 auto;"></div>
+  </div>
+
+  <div class="scroll-hint">Scroll to explore</div>
+</section>
+
+<!-- ABOUT STATS -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="section-eyebrow">Run for the Roses</p>
+    <h2 class="section-title">A Race Like No Other</h2>
+    <div class="section-rule"></div>
+
+    <div class="about-grid">
+      <div class="about-stat">
+        <div class="about-stat-number">152</div>
+        <div class="about-stat-label">Years of Tradition</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-number">20</div>
+        <div class="about-stat-label">Horses in the Field</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-number">1¼</div>
+        <div class="about-stat-label">Miles of Glory</div>
+      </div>
+    </div>
+
+    <p class="about-text">
+      Every year on the first Saturday in May, the world holds its breath. Twenty three-year-old thoroughbreds — the finest of their generation — thunder down the storied dirt of Churchill Downs in pursuit of the garland of roses. This is the 152nd Kentucky Derby, the opening jewel of the Triple Crown, and the most exciting two minutes in sports.
+    </p>
+  </div>
+</section>
+
+<!-- HISTORY STRIP -->
+<div class="history-strip">
+  <p>
+    <strong>"And they're off!"</strong> — The 2025 champion <strong>Sovereignty</strong> set the bar. Who will claim the roses in 2026? Twenty hopefuls. One track. One shot at immortality.
+  </p>
+</div>
+
+<!-- FIELD -->
+<section class="field-section" id="field">
+  <div class="container">
+    <p class="section-eyebrow">152nd Kentucky Derby</p>
+    <h2 class="section-title">The 2026 Field</h2>
+    <div class="section-rule"></div>
+
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterHorses('all', this)">All Horses</button>
+      <button class="filter-btn" onclick="filterHorses('favorites', this)">Top Contenders</button>
+      <button class="filter-btn" onclick="filterHorses('longshots', this)">Longshots</button>
+      <button class="filter-btn" onclick="filterHorses('international', this)">International</button>
+    </div>
+
+    <div class="field-grid" id="field-grid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- CANADIAN CONNECTION -->
+<section class="canada-section" id="canada">
+  <div class="container">
+    <p class="section-eyebrow">🍁 North of the Border</p>
+    <h2 class="section-title">The <span class="canada-title-accent">Canadian</span> Connection</h2>
+    <div class="section-rule"></div>
+
+    <div class="canada-cards">
+
+      <div class="canada-card">
+        <span class="canada-card-flag">🍁</span>
+        <div class="canada-card-title">Mark Casse</div>
+        <div class="canada-card-subtitle">Hall of Fame Trainer · London, Ontario</div>
+        <p class="canada-card-text">
+          Canada's most celebrated trainer had his <strong>Silent Tactic</strong> scratched on April 29 with a bruised foot — ending his quest for a first-ever Kentucky Derby win. Casse, 65, called the decision easy: <em>"We're always going to try to do what we feel is best for the horse."</em>
+          <br><br>
+          A <strong>17-time Sovereign Award winner</strong> as Canada's outstanding trainer, Casse is inducted into both the <strong>Canadian Horse Racing Hall of Fame (2016)</strong> and the <strong>National Museum of Racing Hall of Fame (2020)</strong>. His remarkable résumé includes seven Canadian Triple Crown races — the King's Plate with Lexie Lou (2014), Wonder Gadot (2018), and Paramount Prince (2023) — plus two-thirds of the American Triple Crown in 2019 with War of Will (Preakness) and Sir Winston (Belmont).
+          <br><br>
+          The plan is now <strong>the Preakness Stakes at Laurel Park on May 16</strong>. Don't count Canada out of the Triple Crown picture.
+        </p>
+      </div>
+
+      <div class="canada-card">
+        <span class="canada-card-flag">🐎</span>
+        <div class="canada-card-title">Silent Tactic</div>
+        <div class="canada-card-subtitle">Scratched — Targeting Preakness</div>
+        <p class="canada-card-text">
+          One of the most intriguing longshot stories of the 2026 Road to the Derby, <strong>Silent Tactic</strong> had finished first or second in all six career starts. His runner-up finish to Renegade in the Arkansas Derby showed genuine Derby-calibre talent.
+          <br><br>
+          A bruised foot — described by Casse as similar to a <em>"fingernail separation"</em> — forced the painful scratch just days before the race, breaking the heart of jockey <strong>Cristian Torres</strong>, who had been set to make his Kentucky Derby debut.
+          <br><br>
+          <strong>Next stop: Preakness Stakes, May 16, Laurel Park.</strong> The Canadian flag may yet fly over a Triple Crown race in 2026.
+        </p>
+      </div>
+
+      <div class="canada-card">
+        <span class="canada-card-flag">🏆</span>
+        <div class="canada-card-title">Woodbine & Canada's Racing Heritage</div>
+        <div class="canada-card-subtitle">A Nation of Horse Racing Passion</div>
+        <p class="canada-card-text">
+          Canada has a rich thoroughbred tradition anchored at <strong>Woodbine Racetrack in Toronto</strong>, home to the prestigious <strong>King's Plate</strong> — North America's oldest continuously run stakes race, dating to 1860. Canadian-bred and Canadian-connected horses have long made their mark on the international stage, and the 2026 Derby class carries that legacy proudly.
+          <br><br>
+          Mark Casse's long dominance of the Sovereign Award — winning it <strong>17 times</strong>, an unprecedented achievement — reflects Canadian thoroughbred racing's remarkable depth of talent and ambition.
+          <br><br>
+          As Derby fans in <strong>Toronto, Vancouver, Montreal and across the country</strong> tune in on May 2nd, Canada's racing community is already looking ahead to the Preakness — and dreaming of roses of a different colour.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="canada-note">
+      <p>
+        <strong>Fan Note:</strong> While Canada won't have a runner in the starting gate on Saturday, the Maple Leaf runs deep through the fabric of this Derby. Mark Casse remains one of the most respected figures in North American racing, and when Silent Tactic lines up at Laurel Park on May 16, the whole country will be watching. <strong>Go Canada! 🍁</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🌹 Derby Fan Central</div>
+  <p>152nd Kentucky Derby · May 2, 2026 · Churchill Downs, Louisville, Kentucky</p>
+  <p style="margin-top:0.5rem;">Fan-made site · Not affiliated with Churchill Downs or the Kentucky Derby organization</p>
+  <p style="margin-top:0.5rem;">Odds & field information as of April 30, 2026 · Subject to change</p>
+</footer>
+
+<script>
+  const horses = [
+    { post: 1, name: "Renegade", jockey: "Irad Ortiz Jr.", trainer: "Todd Pletcher", odds: "5-1", tag: "favorite", note: "🏆 Derby Favorite" },
+    { post: 2, name: "Albus", jockey: "Manny Franco", trainer: "Riley Mott", odds: "30-1", tag: "longshot" },
+    { post: 3, name: "Intrepido", jockey: "Hector Berrios", trainer: "Jeff Mullins", odds: "50-1", tag: "longshot" },
+    { post: 4, name: "Litmus Test", jockey: "Martin Garcia", trainer: "Bob Baffert", odds: "41-1", tag: "longshot" },
+    { post: 5, name: "Right to Party", jockey: "Chris Elliott", trainer: "Kenny McPeek", odds: "32-1", tag: "longshot" },
+    { post: 6, name: "Commandment", jockey: "Luis Saez", trainer: "Brad Cox", odds: "7-1", tag: "contender", note: "Florida Derby winner" },
+    { post: 7, name: "Danon Bourbon", jockey: "Atsuya Nishimura", trainer: "Manabu Ikezoe", odds: "14-1", tag: "international", note: "🇯🇵 Japan Road qualifier · Undefeated in Japan" },
+    { post: 8, name: "So Happy", jockey: "Mike Smith", trainer: "Mark Glatt", odds: "7-1", tag: "contender" },
+    { post: 9, name: "The Puma", jockey: "Javier Castellano", trainer: "Gustavo Delgado", odds: "6-1", tag: "contender" },
+    { post: 10, name: "Wonder Dean", jockey: "Ryusei Sakai", trainer: "Daisuke Takayanagi", odds: "30-1", tag: "international", note: "🇯🇵 Japan Road qualifier" },
+    { post: 11, name: "Incredibolt", jockey: "Jaime Torres", trainer: "Riley Mott", odds: "20-1", tag: "longshot" },
+    { post: 12, name: "Chief Wallabee", jockey: "Junior Alvarado", trainer: "Bill Mott", odds: "8-1", tag: "contender", note: "Trained by 2025 Derby-winning trainer Bill Mott" },
+    { post: "—", name: "Silent Tactic", jockey: "Cristian Torres", trainer: "Mark Casse 🍁", odds: "—", tag: "scratched", note: "Scratched — bruised foot · 🍁 Canadian trainer" },
+    { post: 13, name: "Potente", jockey: "Juan Hernandez", trainer: "Bob Baffert", odds: "20-1", tag: "longshot" },
+    { post: 14, name: "Emerging Market", jockey: "Flavien Prat", trainer: "Chad Brown", odds: "15-1", tag: "contender" },
+    { post: 15, name: "Pavlovian", jockey: "Edwin Maldonado", trainer: "Doug O'Neill", odds: "30-1", tag: "longshot" },
+    { post: 16, name: "Six Speed", jockey: "Brian Hernandez Jr.", trainer: "Bhupat Seemar", odds: "50-1", tag: "longshot" },
+    { post: 17, name: "Further Ado", jockey: "John Velazquez", trainer: "Brad Cox", odds: "5-1", tag: "contender" },
+    { post: 18, name: "Golden Tempo", jockey: "Jose Ortiz", trainer: "Cherie DeVaux", odds: "50-1", tag: "longshot" },
+    { post: "—", name: "Fulleffort", jockey: "Tyler Gaffalione", trainer: "Brad Cox", odds: "—", tag: "scratched", note: "Scratched — bone chip, left hind ankle" },
+    { post: 19, name: "Great White", jockey: "Alex Achard", trainer: "John Ennis", odds: "50-1", tag: "alt", note: "Alternate in — replaced Silent Tactic" },
+    { post: 20, name: "Ocelli", jockey: "TBD", trainer: "TBD", odds: "50-1", tag: "alt", note: "Alternate in — replaced Fulleffort · Attempting to be 1st maiden winner since 1933" },
+  ];
+
+  function renderHorses(filter) {
+    const grid = document.getElementById('field-grid');
+    let filtered = horses;
+
+    if (filter === 'favorites') {
+      filtered = horses.filter(h => ['favorite', 'contender'].includes(h.tag));
+    } else if (filter === 'longshots') {
+      filtered = horses.filter(h => h.tag === 'longshot');
+    } else if (filter === 'international') {
+      filtered = horses.filter(h => h.tag === 'international');
+    }
+
+    grid.innerHTML = filtered.map(h => {
+      const isFav = h.tag === 'favorite';
+      const isScratched = h.tag === 'scratched';
+      const isAlt = h.tag === 'alt';
+      const isIntl = h.tag === 'international';
+
+      let cardClass = 'horse-card';
+      if (isFav) cardClass += ' favorite';
+
+      const badge = isScratched
+        ? '<span class="scratched-badge">Scratched</span>'
+        : isAlt ? '<span class="alt-badge">Alternate In</span>' : '';
+
+      return `
+        <div class="${cardClass}" data-tag="${h.tag}">
+          ${isFav ? '<div class="fav-crown">👑</div>' : ''}
+          <div class="horse-post">${h.post}</div>
+          <div class="horse-info">
+            <div class="horse-name">${h.name}${badge}</div>
+            <div class="horse-details">
+              <strong>Jockey:</strong> ${h.jockey}<br>
+              <strong>Trainer:</strong> ${h.trainer}<br>
+              ${h.note ? `<span style="color:rgba(201,168,76,0.7);font-style:italic;">${h.note}</span>` : ''}
+            </div>
+          </div>
+          <div>
+            <div class="odds-label">Odds</div>
+            <div class="horse-odds">${h.odds}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function filterHorses(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderHorses(type);
+  }
+
+  renderHorses('all');
+</script>
+</body>
+</html>
